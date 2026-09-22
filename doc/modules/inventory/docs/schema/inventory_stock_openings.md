@@ -10,9 +10,4 @@ columns: [inventory_batch_id->inventory_batches.id, inventory_rack_id->inventory
 ---
 ```
 
-PostgreSQL schema: `inventory_module`.
-
-Composite PK: `(inventory_batch_id, inventory_rack_id, effective_date)`.
-
-Entity: `retailr-server/src/Modules/InventoryModule/InventoryModule.Domain/Entities/InventoryStockOpening.cs`  
-Config: `.../EntityConfigs/InventoryStockOpeningConfig.cs`
+PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.

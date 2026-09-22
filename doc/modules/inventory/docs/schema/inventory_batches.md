@@ -10,4 +10,4 @@ columns: [id, inventory_item_id->inventory_items.id]
 ---
 ```
 
-PostgreSQL schema: `inventory_module`. PK column `id` declared so opening/stock FKs resolve.
+PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.

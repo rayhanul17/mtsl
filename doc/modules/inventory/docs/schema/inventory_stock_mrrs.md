@@ -10,6 +10,4 @@ columns: [id, inventory_store_id->inventory_stores.id, base_mrr_id, mrr_type_id,
 ---
 ```
 
-PostgreSQL schema: `inventory_module`. `mrr_category` is `RM` or `FG`.
-
-Entity: `.../Domain/Entities/InventoryStockMrr.cs`
+PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.

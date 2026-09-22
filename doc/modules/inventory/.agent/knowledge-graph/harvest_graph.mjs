@@ -26,17 +26,32 @@ function parseFrontmatter(text) {
   const match = text.match(FRONTMATTER_RE);
   if (!match) return null;
   const fields = {};
+  let listKey = null;
   for (const raw of match[1].split(/\r?\n/)) {
     const line = raw.trimEnd();
-    if (!line.trim() || line.trim().startsWith("#") || !line.includes(":")) continue;
+    if (!line.trim() || line.trim().startsWith("#")) continue;
+
+    // Multi-line YAML list item: "  - value"
+    const listItem = line.match(/^\s*-\s+(.+)$/);
+    if (listItem && listKey) {
+      if (!Array.isArray(fields[listKey])) fields[listKey] = [];
+      fields[listKey].push(listItem[1].trim().replace(/\s+#.*$/, ""));
+      continue;
+    }
+
+    if (!line.includes(":")) continue;
     const idx = line.indexOf(":");
     const key = line.slice(0, idx).trim();
     let value = line.slice(idx + 1).trim().replace(/\s+#.*$/, "");
+    listKey = null;
+
     if (value.startsWith("[") && value.endsWith("]")) {
       const inner = value.slice(1, -1).trim();
       fields[key] = inner ? inner.split(",").map((v) => v.trim()).filter(Boolean) : [];
     } else if (value === "") {
-      fields[key] = null;
+      // Start of multi-line list (e.g. api:)
+      fields[key] = [];
+      listKey = key;
     } else {
       fields[key] = value;
     }
@@ -77,7 +92,9 @@ function harvestFeature(filePath, fields) {
   });
 
   if (fields.module) {
-    edges.push({ from: `mod:${fields.module}`, to: featId, type: "CONTAINS" });
+    const modId = `mod:${fields.module}`;
+    nodes.push({ id: modId, type: "Module", name: fields.module });
+    edges.push({ from: modId, to: featId, type: "CONTAINS" });
   }
 
   const service = fields.service;

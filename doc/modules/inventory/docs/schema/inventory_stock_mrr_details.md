@@ -10,6 +10,4 @@ columns: [id, inventory_stock_mrr_id->inventory_stock_mrrs.id, inventory_rack_id
 ---
 ```
 
-PostgreSQL schema: `inventory_module`.
-
-Entity: `.../Domain/Entities/InventoryStockMrrDetail.cs`
+PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.

@@ -24,49 +24,13 @@ downstream: [feat:inv-rack, feat:inv-stock-opening, feat:inv-stock-mrr-rm, feat:
 
 ## Purpose
 
-Warehouse/store master with users/categories mapping; slim dropdown list for other screens.
+Store/warehouse master. Slim dropdown for other screens.
 
 ## Entry
 
 | Kind | Value |
 |------|-------|
-| Menu / routes | `inventory-module/inventory-store` |
-| Angular page | `retailr-client/src/app/modules/inventory-module/pages/inventory-store/` |
-| API controller | `retailr-server/src/Modules/InventoryModule/InventoryModule.Api/Controllers/InventoryStoreController.cs` |
-| App service | `retailr-server/src/Modules/InventoryModule/InventoryModule.Application/Features/InventoryStoreFeatures/` |
-
-## Execution
-
-```mermaid
-sequenceDiagram
-  actor User
-  participant UI as Angular
-  participant API as InventoryStoreController
-  participant Svc as InventoryStoreService
-  participant DB as PostgreSQL
-  User->>UI: use screen
-  UI->>API: HTTP
-  API->>Svc: service method
-  Svc->>DB: EF Core or tagged SQL
-  Svc-->>API: outcome
-  API-->>UI: JSON
-```
-
-## Code map
-
-| Layer | Path |
-|-------|------|
+| Routes | `inventory-module/inventory-store` |
 | Angular | `retailr-client/src/app/modules/inventory-module/pages/inventory-store/` |
 | Controller | `retailr-server/src/Modules/InventoryModule/InventoryModule.Api/Controllers/InventoryStoreController.cs` |
 | Service | `retailr-server/src/Modules/InventoryModule/InventoryModule.Application/Features/InventoryStoreFeatures/` |
-
-
-## Tables
-
-- `tbl:inventory_stores`
-- `tbl:inventory_store_categories`
-- `tbl:inventory_store_users`
-
-## Gaps
-
-Controller actions listed from source; stock side-effects inside action-flow verified at service level only where noted.

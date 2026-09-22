@@ -1,50 +1,49 @@
 # Inventory module
 
-Schema: `inventory_module` (PostgreSQL).
+PostgreSQL schema: `inventory_module`.
 
-All feature docs below list **every controller action** from `InventoryModule.Api` (verified against source). Re-harvest after edits:
+Every feature lists **all** controller actions. Graph:
 
 ```bash
 node ../.agent/knowledge-graph/harvest_graph.mjs
 ```
 
-## Feature index
+Guide: [10-knowledge-graph.md](10-knowledge-graph.md)
 
-### Configurations (master-data)
+## Features
 
-| Feature id | Doc | Status |
-|------------|-----|--------|
-| `feat:inv-category` | [features/inv-category.md](features/inv-category.md) | verified |
-| `feat:inv-attribute` | [features/inv-attribute.md](features/inv-attribute.md) | verified |
-| `feat:inv-batch` | [features/inv-batch.md](features/inv-batch.md) | verified |
-| `feat:inv-material` | [features/inv-material.md](features/inv-material.md) | verified |
-| `feat:inv-item` | [features/inv-item.md](features/inv-item.md) | verified |
-| `feat:inv-store` | [features/inv-store.md](features/inv-store.md) | verified |
-| `feat:inv-rack` | [features/inv-rack.md](features/inv-rack.md) | verified |
-| `feat:inv-bp-rfq-setting` | [features/inv-bp-rfq-setting.md](features/inv-bp-rfq-setting.md) | verified |
+### Master-data
+
+| Id | Doc |
+|----|-----|
+| `feat:inv-category` | [inv-category.md](features/inv-category.md) |
+| `feat:inv-attribute` | [inv-attribute.md](features/inv-attribute.md) |
+| `feat:inv-batch` | [inv-batch.md](features/inv-batch.md) |
+| `feat:inv-material` | [inv-material.md](features/inv-material.md) |
+| `feat:inv-item` | [inv-item.md](features/inv-item.md) |
+| `feat:inv-store` | [inv-store.md](features/inv-store.md) |
+| `feat:inv-rack` | [inv-rack.md](features/inv-rack.md) |
+| `feat:inv-bp-rfq-setting` | [inv-bp-rfq-setting.md](features/inv-bp-rfq-setting.md) |
 
 ### Transactions
 
-| Feature id | Doc | Status |
-|------------|-----|--------|
-| `feat:inv-stock-opening` | [features/inv-stock-opening.md](features/inv-stock-opening.md) | verified |
-| `feat:inv-stock-mrr-rm` | [features/inv-stock-mrr-rm.md](features/inv-stock-mrr-rm.md) | verified |
-| `feat:inv-stock-mrr-fg` | [features/inv-stock-mrr-fg.md](features/inv-stock-mrr-fg.md) | verified |
-| `feat:inv-stock-requisition` | [features/inv-stock-requisition.md](features/inv-stock-requisition.md) | verified |
-| `feat:inv-stock-issue` | [features/inv-stock-issue.md](features/inv-stock-issue.md) | verified |
-| `feat:inv-stock-issue-return` | [features/inv-stock-issue-return.md](features/inv-stock-issue-return.md) | verified |
-| `feat:inv-stock-adjustment` | [features/inv-stock-adjustment.md](features/inv-stock-adjustment.md) | verified |
-| `feat:inv-stock-transfer` | [features/inv-stock-transfer.md](features/inv-stock-transfer.md) | verified |
-| `feat:inv-stock-closing` | [features/inv-stock-closing.md](features/inv-stock-closing.md) | verified |
-| `feat:inv-current-stock` | [features/inv-current-stock.md](features/inv-current-stock.md) | verified |
+| Id | Doc |
+|----|-----|
+| `feat:inv-stock-opening` | [inv-stock-opening.md](features/inv-stock-opening.md) |
+| `feat:inv-stock-mrr-rm` | [inv-stock-mrr-rm.md](features/inv-stock-mrr-rm.md) |
+| `feat:inv-stock-mrr-fg` | [inv-stock-mrr-fg.md](features/inv-stock-mrr-fg.md) |
+| `feat:inv-stock-requisition` | [inv-stock-requisition.md](features/inv-stock-requisition.md) |
+| `feat:inv-stock-issue` | [inv-stock-issue.md](features/inv-stock-issue.md) |
+| `feat:inv-stock-issue-return` | [inv-stock-issue-return.md](features/inv-stock-issue-return.md) |
+| `feat:inv-stock-adjustment` | [inv-stock-adjustment.md](features/inv-stock-adjustment.md) |
+| `feat:inv-stock-transfer` | [inv-stock-transfer.md](features/inv-stock-transfer.md) |
+| `feat:inv-stock-closing` | [inv-stock-closing.md](features/inv-stock-closing.md) |
+| `feat:inv-current-stock` | [inv-current-stock.md](features/inv-current-stock.md) |
 
 ### Reports
 
-| Feature id | Doc | Status |
-|------------|-----|--------|
-| `feat:inv-stock-report` | [features/inv-stock-report.md](features/inv-stock-report.md) | verified |
+| Id | Doc |
+|----|-----|
+| `feat:inv-stock-report` | [inv-stock-report.md](features/inv-stock-report.md) |
 
-## Knowledge graph
-
-- Guide: [10-knowledge-graph.md](10-knowledge-graph.md)
-- Generated: [`../.agent/knowledge-graph/`](../.agent/knowledge-graph/)
+All statuses: **verified**.

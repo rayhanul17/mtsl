@@ -10,4 +10,4 @@ columns: [id, inventory_stock_issue_id->inventory_stock_issues.id, inventory_bat
 ---
 ```
 
-PostgreSQL schema: `inventory_module`.
+PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.

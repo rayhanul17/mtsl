@@ -27,51 +27,13 @@ downstream: [feat:inv-item, feat:inv-stock-opening, feat:inv-bp-rfq-setting]
 
 ## Purpose
 
-Material master with category links, detail/slim lists, and attribute-data for UI.
+Material master with details, slim lists, and attribute-data for UI.
 
 ## Entry
 
 | Kind | Value |
 |------|-------|
-| Menu / routes | `inventory-module/inventory-material` |
-| Angular page | `retailr-client/src/app/modules/inventory-module/pages/inventory-material/` |
-| API controller | `retailr-server/src/Modules/InventoryModule/InventoryModule.Api/Controllers/InventoryMaterialController.cs` |
-| App service | `retailr-server/src/Modules/InventoryModule/InventoryModule.Application/Features/InventoryMaterialFeatures/` |
-
-## Execution
-
-```mermaid
-sequenceDiagram
-  actor User
-  participant UI as Angular
-  participant API as InventoryMaterialController
-  participant Svc as InventoryMaterialService
-  participant DB as PostgreSQL
-  User->>UI: use screen
-  UI->>API: HTTP
-  API->>Svc: service method
-  Svc->>DB: EF Core or tagged SQL
-  Svc-->>API: outcome
-  API-->>UI: JSON
-```
-
-## Code map
-
-| Layer | Path |
-|-------|------|
+| Routes | `inventory-module/inventory-material` |
 | Angular | `retailr-client/src/app/modules/inventory-module/pages/inventory-material/` |
 | Controller | `retailr-server/src/Modules/InventoryModule/InventoryModule.Api/Controllers/InventoryMaterialController.cs` |
 | Service | `retailr-server/src/Modules/InventoryModule/InventoryModule.Application/Features/InventoryMaterialFeatures/` |
-
-## Notes
-
-May use PG function `inventory_module.inventory_material_query` (tag InventoryMaterialQuery).
-
-## Tables
-
-- `tbl:inventory_materials`
-- `tbl:inventory_material_categories`
-
-## Gaps
-
-Controller actions listed from source; stock side-effects inside action-flow verified at service level only where noted.

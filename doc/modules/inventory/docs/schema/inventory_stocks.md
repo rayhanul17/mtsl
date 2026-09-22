@@ -10,12 +10,4 @@ columns: [inventory_batch_id->inventory_batches.id, inventory_rack_id->inventory
 ---
 ```
 
-PostgreSQL schema: `inventory_module`.
-
-Composite PK: `(inventory_batch_id, inventory_rack_id)`.
-
-Cumulative balance formula (see Persistence stock-report doc):  
-`received + transfer_receive − issued − transfer_issue − adjustment`.
-
-Entity: `retailr-server/src/Modules/InventoryModule/InventoryModule.Domain/Entities/InventoryStock.cs`  
-Config: `.../EntityConfigs/InventoryStockConfig.cs`
+PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.

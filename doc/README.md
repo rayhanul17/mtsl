@@ -1,40 +1,42 @@
-# Retailr documentation + knowledge graph
+# Retailr docs
 
-Agent-oriented docs for the retailr monorepo (`retailr-client` + `retailr-server`).
+Agent knowledge base for `retailr-client` + `retailr-server`.
 
-Layout mirrors [multitex-erp-doc](https://github.com/mehedi-soft-dev/multitex-erp-doc): per module `docs/` + `.agent/knowledge-graph/`.
+Layout (same idea as [multitex-erp-doc](https://github.com/mehedi-soft-dev/multitex-erp-doc)):
+
+```
+doc/
+  modules/{module}/
+    docs/features/          # feature MD + YAML seed
+    docs/schema/            # table stubs + FK columns
+    .agent/knowledge-graph/ # nodes.jsonl, edges.jsonl, harvest
+```
 
 ## Modules
 
-| Module | Path |
-|--------|------|
-| Inventory | [`modules/inventory/`](modules/inventory/) |
+| Module | Index |
+|--------|-------|
+| Inventory | [modules/inventory/docs/README.md](modules/inventory/docs/README.md) |
 
-## How agents should use this
+## Agent workflow
 
-1. Open `modules/{module}/.agent/knowledge-graph/nodes.jsonl` and `edges.jsonl`.
-2. Find `feat:{id}` for the screen/workflow.
-3. Follow edges: `EXPOSES` → API/UI, `USES_SERVICE` / `INJECTS` → service, `USES_TABLE` / `FK_TO` → impact.
-4. Open only the cited source files under `retailr-client` / `retailr-server`.
+1. Read `nodes.jsonl` / `edges.jsonl` under the module’s `.agent/knowledge-graph/`.
+2. Start at `feat:…`.
+3. Follow `EXPOSES` → API/UI, `INJECTS` / `USES_SERVICE` → service, `USES_TABLE` / `FK_TO` → impact.
+4. Open only cited paths in client/server.
 
-Do **not** hand-edit `nodes.jsonl` / `edges.jsonl`. Edit feature/schema markdown, then run harvest.
-
-## Harvest
+Do not edit JSONL by hand. Edit feature/schema MD, then harvest:
 
 ```bash
 node modules/inventory/.agent/knowledge-graph/harvest_graph.mjs
 ```
 
-Run from `doc/` or pass absolute script path.
+(from `doc/`, or use an absolute path)
 
-## Status values
+## Status
 
-| Status | Meaning |
-|--------|---------|
-| `draft` | Frontmatter filled; body may be stub |
-| `inferred` | From code shape; not fully verified |
-| `verified` | Checked against controller/service/entities |
-
-## Share later
-
-This `doc/` folder is shaped so it can lift wholesale to a sibling `retailr-doc` repo when share-without-code is needed.
+| Value | Meaning |
+|-------|---------|
+| `verified` | Checked against controller (and key entities) |
+| `inferred` | Shape from code; not column-audited |
+| `draft` | Incomplete (should not appear on inventory features) |
