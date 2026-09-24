@@ -10,4 +10,23 @@ columns: [id, inventory_store_id1->inventory_stores.id, inventory_store_id2->inv
 ---
 ```
 
-PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.
+PostgreSQL schema `inventory_module`. YAML `columns` = harvest seed (`FK_TO`). Table below = human read.
+
+| Column | Type | Nullable | FK |
+|--------|------|----------|----|
+| `id` | `bigint` | no |  |
+| `inventory_store_id1` | `bigint` | no | inventory_stores.id |
+| `inventory_store_id2` | `bigint` | no | inventory_stores.id |
+| `inventory_rack_id1` | `bigint` | no | inventory_racks.id |
+| `requisition_date` | `date` | no |  |
+| `requisition_no` | `character varying(100)` | no |  |
+| `action_status_id` | `bigint` | no | workflow_actions.id |
+| `action_date_time` | `timestamp with time zone` | no |  |
+| `action_by_id` | `bigint` | no | users.id |
+| `is_action_flow_completed` | `boolean` | no |  |
+| `is_cancelled` | `boolean` | no |  |
+| `comments` | `character varying(1000)` | yes |  |
+| `created_at_utc` | `timestamp with time zone` | no |  |
+| `created_by_user_id` | `bigint` | no | users.id |
+| `updated_at_utc` | `timestamp with time zone` | yes |  |
+| `updated_by_user_id` | `bigint` | yes | users.id |

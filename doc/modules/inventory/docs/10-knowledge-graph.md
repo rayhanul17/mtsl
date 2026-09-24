@@ -30,6 +30,8 @@ Omit empty `repos` / `sql`.
 | `model` | `MAPS_MODEL` |
 | `columns` | `COLUMN` or `COLUMN->TABLE.COLUMN` → `FK_TO` |
 
+Below the YAML, each schema doc has a human markdown table: Column / Type / Nullable / FK (from EF snapshot). Harvest ignores that table.
+
 Table ids use bare names (`inventory_stock_openings`); PG schema is always `inventory_module`.
 
 ## Node / edge IDs

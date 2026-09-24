@@ -10,4 +10,22 @@ columns: [id, inventory_item_id->inventory_items.id, sequence_no, name, normaliz
 ---
 ```
 
-PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.
+PostgreSQL schema `inventory_module`. YAML `columns` = harvest seed (`FK_TO`). Table below = human read.
+
+| Column | Type | Nullable | FK |
+|--------|------|----------|----|
+| `id` | `bigint` | no |  |
+| `inventory_item_id` | `bigint` | no | inventory_items.id |
+| `sequence_no` | `smallint` | no |  |
+| `name` | `character varying(300)` | no |  |
+| `normalized_name` | `character varying(300)` | no |  |
+| `material_cost` | `numeric(12,2)` | no |  |
+| `financial_currency_id` | `smallint` | no | lk_financial_currencies.id |
+| `measurement_of_unit_id` | `bigint` | no | measurement_of_units.id |
+| `manufacture_date` | `date` | yes |  |
+| `expiry_date` | `date` | yes |  |
+| `is_active` | `boolean` | no |  |
+| `created_at_utc` | `timestamp with time zone` | no |  |
+| `created_by_user_id` | `bigint` | no | users.id |
+| `updated_at_utc` | `timestamp with time zone` | yes |  |
+| `updated_by_user_id` | `bigint` | yes | users.id |

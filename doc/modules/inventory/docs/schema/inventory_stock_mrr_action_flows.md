@@ -10,4 +10,14 @@ columns: [inventory_stock_mrr_id->inventory_stock_mrrs.id, ref_action_flow_statu
 ---
 ```
 
-PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.
+PostgreSQL schema `inventory_module`. YAML `columns` = harvest seed (`FK_TO`). Table below = human read.
+
+| Column | Type | Nullable | FK |
+|--------|------|----------|----|
+| `inventory_stock_mrr_id` | `bigint` | no | inventory_stock_mrrs.id |
+| `ref_action_flow_status_id` | `bigint` | no | workflow_actions.id |
+| `repeat_no` | `integer` | no |  |
+| `action_date_time` | `timestamp with time zone` | yes |  |
+| `prev_action_date_time` | `timestamp with time zone` | yes |  |
+| `action_by_id` | `bigint` | no | users.id |
+| `comments` | `character varying(200)` | yes |  |

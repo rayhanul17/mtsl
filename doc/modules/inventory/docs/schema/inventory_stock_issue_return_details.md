@@ -10,4 +10,14 @@ columns: [id, inventory_stock_issue_detail_id->inventory_stock_issue_details.id,
 ---
 ```
 
-PostgreSQL schema `inventory_module`. Harvest reads `columns` for `FK_TO`.
+PostgreSQL schema `inventory_module`. YAML `columns` = harvest seed (`FK_TO`). Table below = human read.
+
+| Column | Type | Nullable | FK |
+|--------|------|----------|----|
+| `id` | `bigint` | no |  |
+| `inventory_stock_issue_detail_id` | `bigint` | no | inventory_stock_issue_details.id |
+| `inventory_stock_issue_return_id` | `bigint` | no | inventory_stock_issue_returns.id |
+| `inventory_return_rack_id` | `bigint` | no | inventory_racks.id |
+| `return_quantity` | `numeric(20,10)` | no |  |
+| `acknowledged_quantity` | `numeric` | no |  |
+| `acknowledgement_comment` | `text` | yes |  |
