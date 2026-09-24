@@ -6,7 +6,7 @@ id: tbl:inventory_stock_requisition_action_flows
 module: inventory
 status: inferred
 model: InventoryStockRequisitionActionFlow
-columns: [inventory_stock_requisition_id->inventory_stock_requisitions.id]
+columns: [inventory_stock_requisition_id->inventory_stock_requisitions.id, reference_action_flow_status_id->workflow_actions.id, repeat_no, action_date_time, previous_action_date_time, action_by_id->users.id, comments]
 ---
 ```
 

@@ -6,7 +6,7 @@ id: tbl:inventory_material_categories
 module: inventory
 status: inferred
 model: InventoryMaterialCategory
-columns: [id]
+columns: [inventory_material_id->inventory_materials.id, inventory_category_id->inventory_categories.id]
 ---
 ```
 

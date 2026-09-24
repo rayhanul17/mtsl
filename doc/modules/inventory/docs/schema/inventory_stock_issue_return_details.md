@@ -6,7 +6,7 @@ id: tbl:inventory_stock_issue_return_details
 module: inventory
 status: inferred
 model: InventoryStockIssueReturnDetail
-columns: [id]
+columns: [id, inventory_stock_issue_detail_id->inventory_stock_issue_details.id, inventory_stock_issue_return_id->inventory_stock_issue_returns.id, inventory_return_rack_id->inventory_racks.id, return_quantity, acknowledged_quantity, acknowledgement_comment]
 ---
 ```
 
